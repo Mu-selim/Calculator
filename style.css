@@ -1,0 +1,110 @@
+:root {
+    --light-blue: #DAF0FF;
+    --black: #17181A;
+    --blue: #34aeff;
+    --dark-blue: #00529e;
+    --white: #FFFFFF;
+    --gray: #818181;
+    --light-gray: #dadada;
+    --dark-gray: #303136;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--light-blue);
+    overflow: hidden;
+}
+
+.calculatorBox {
+    width: 300px;
+    background: var(--black);
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 2em 1em 2em var(--blue);
+}
+
+.IO {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 32px;
+    padding: 20px 0;
+}
+
+.inputField,
+.resultField {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    min-height: 20px;
+}
+
+.inputField {
+    color: var(--gray);
+    font-size: clamp(18px, 5vw, 40px);
+}
+
+.resultField {
+    color: var(--white);
+    font-size: clamp(28px, 6vw, 44px);
+}
+
+.buttonsBox {
+    margin-top: 32px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.row {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.botton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 52px;
+    height: 52px;
+    font-size: 1.5rem;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.gray {
+    background: var(--gray);
+    color: var(--light-gray);
+}
+
+.blue {
+    background: var(--dark-blue);
+    color: var(--blue);
+}
+
+.number {
+    background: var(--dark-gray);
+    color: var(--blue);
+}
+
+.zeroBtn {
+    width: 120px;
+}
+
+.equalSign {
+    background: var(--blue);
+    color: var(--white);
+}
