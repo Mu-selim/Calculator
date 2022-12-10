@@ -214,11 +214,10 @@ let evaluation = (expression) => {
     // Remove any whitespaces.
     expression = expression.replace(/\s/g, '');
     if(expression.length > 0 && (expression[0] !== '(' || expression[expression.length-1] !== ')')) {
+        if(isOperator(expression[expression.length-1])) {
+            return null;
+        }
         expression = '(' + expression + ')';
-    }
-    
-    if(isOperator(expression[expression.length-1])) {
-        return null;
     }
 
     // Check if the given expression is valid.
