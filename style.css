@@ -60,6 +60,10 @@
     font-size: clamp(28px, 6vw, 44px);
 }
 
+.signStyle {
+    color: var(--blue);
+}
+
 .buttonsBox {
     margin-top: 24px;
     width: 100%;

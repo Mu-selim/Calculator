@@ -34,76 +34,80 @@ clearDigit.addEventListener('click', ()=> {
     inputField.textContent = inputField.textContent.slice(0, -1);
 });
 
+const addItem = (item) => {
+    inputField.textContent += item;
+}
+
 power.addEventListener('click', ()=> {
-    inputField.textContent += '^';
+    addItem('^');
 });
 
 divide.addEventListener('click', ()=> {
-    inputField.textContent += '/';
+    addItem('/');
 });
 
 multiply.addEventListener('click', ()=> {
-    inputField.textContent += '*';
+    addItem('*');
 });
 
 subtract.addEventListener('click', ()=> {
-    inputField.textContent += '-';
+    addItem('-');
 });
 
 add.addEventListener('click', ()=> {
-    inputField.textContent += '+';
+    addItem('+');
 });
 
 dot.addEventListener('click', ()=> {
-    inputField.textContent += '.';
+    addItem('.');
 });
 
 zero.addEventListener('click', ()=> {
-    inputField.textContent += '0';
+    addItem('0');
 });
 
 one.addEventListener('click', ()=> {
-    inputField.textContent += '1';
+    addItem('1');
 });
 
 two.addEventListener('click', ()=> {
-    inputField.textContent += '2';
+    addItem('2');
 });
 
 three.addEventListener('click', ()=> {
-    inputField.textContent += '3';
+    addItem('3');
 });
 
 four.addEventListener('click', ()=> {
-    inputField.textContent += '4';
+    addItem('4');
 });
 
 five.addEventListener('click', ()=> {
-    inputField.textContent += '5';
+    addItem('5');
 });
 
 six.addEventListener('click', ()=> {
-    inputField.textContent += '6';
+    addItem('6');
 });
 
 seven.addEventListener('click', ()=> {
-    inputField.textContent += '7';
+    addItem('7');
 });
 
 eight.addEventListener('click', ()=> {
-    inputField.textContent += '8';
+    addItem('8');
 });
 
 nine.addEventListener('click', ()=> {
-    inputField.textContent += '9';
+    addItem('9');
 });
 
 open.addEventListener('click', ()=> {
-    inputField.textContent += '(';
+    addItem('(');
 });
 
 close.addEventListener('click', ()=> {
-    inputField.textContent += ')';
+    addItem(')');
 });
 
 let arePair = (c1, c2) => {
