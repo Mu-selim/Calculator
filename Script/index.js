@@ -18,7 +18,9 @@ let inputField = document.querySelector('.inputField'),
     eight = document.getElementById('eight'),
     nine = document.getElementById('nine'),
     dot = document.getElementById('dot'),
-    zero = document.getElementById('zero');
+    zero = document.getElementById('zero'),
+    open = document.querySelector('.open'),
+    close = document.querySelector('.close');
 
 inputField.textContent = '';
 resultField.textContent = '= 0';
@@ -95,6 +97,42 @@ eight.addEventListener('click', ()=> {
 nine.addEventListener('click', ()=> {
     inputField.textContent += '9';
 });
+
+open.addEventListener('click', ()=> {
+    inputField.textContent += '(';
+});
+
+close.addEventListener('click', ()=> {
+    inputField.textContent += ')';
+});
+
+let arePair = (c1, c2) => {
+    if(c1 === '(' && c2 === ')')
+        return true;
+    else if(c1 === '[' && c2 === ']')
+        return true;
+    else if(c1 === '{' && c2 === '}')
+        return true;
+    else
+        return false;
+}
+
+let isBalanced = (s) => {
+    let stack = [];
+    for(let i = 0; i < s.length; i++) {
+        if(s[i] === '(' || s[i] === '[' || s[i] === '{') {
+            stack.push(s[i]);
+            continue;
+        }
+
+        if(s[i] === ')' || s[i] === ']' || s[i] === '}') {
+            if(stack.length === 0 || !arePair(stack.pop(), s[i])) {
+                return false;
+            }
+        }
+    }
+    return stack.length === 0;
+}
 
 let precedence = (sign) => {
     switch(sign) {
@@ -175,8 +213,17 @@ let evaluation = (expression) => {
 
     // Remove any whitespaces.
     expression = expression.replace(/\s/g, '');
-    if(expression.length > 0 && expression[0] !== '(') {
+    if(expression.length > 0 && (expression[0] !== '(' || expression[expression.length-1] !== ')')) {
         expression = '(' + expression + ')';
+    }
+    
+    if(isOperator(expression[expression.length-1])) {
+        return null;
+    }
+
+    // Check if the given expression is valid.
+    if(!isBalanced(expression)) {
+        return null;
     }
 
     let expArray = postfixConvert(expression),
@@ -193,7 +240,6 @@ let evaluation = (expression) => {
             stack.push(current);
         }
     }
-
     return stack.length === 1? stack.pop(): null;
 }
 
@@ -201,7 +247,10 @@ equal.addEventListener('click', ()=> {
     let expression = inputField.textContent;
     let eval = evaluation(expression);
     if(eval === null) {
-        alert('Input Expression in invalid.');
+        alert('invalid expression.');
+    }
+    else if(isNaN(eval)) {
+        alert('invalid expression.');
     } else {
         resultField.textContent = '= ' + eval;
     }
