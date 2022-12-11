@@ -2,12 +2,12 @@
     <b>Mathematical calculator</b>
 </h1>
 
-<p align="center">
-    <img src="Images/UI.png" />
-</p>
-
 <p>
     A mathematical calculator built using stack data structure and Postfix expression <b>"Reverse Polish notation"</b>
+</p>
+
+<p align="center">
+    <img src="Images/UI.png" />
 </p>
 
 ## **Steps to solve the problem:**
