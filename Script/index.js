@@ -200,9 +200,9 @@ let calculate = (n1, n2, operation) => {
     n1 = parseFloat(n1), n2 = parseFloat(n2);
     switch(operation) {
         case '+':
-            return n1+n2;
+            return n2+n1;
         case '-':
-            return n1-n2;
+            return n2-n1;
         case '*':
             return n1*n2;
         case '/':
